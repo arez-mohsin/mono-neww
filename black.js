@@ -20,12 +20,25 @@ const dateFormat = require("dateformat");
 var table = require("table").table;
 const Discord = require("discord.js");
 const cmd = require("node-cmd");
-const prefix = "%";
+const prefix = "m!";
 client.login("");
+
+
+
+
+////////
+const col = "#2f3136"
+const foo = ""
+const image = ""
+////
+const support = "https://discord.gg/2Hyrky9fkE"
+
+
+
 client.on("ready", async () => {
   console.log(`Logged in as ${client.user.username}!`);
   client.user.setStatus("idle");
-  client.user.setActivity(`${prefix}help`, { type: "PLAYING" });
+  client.user.setActivity(`${prefix}help`, { type: "competing" });
   client.guilds.cache.forEach(g => {
     if (g.member(client.user).hasPermission("ADMINISTRATOR")) {
       g.fetchInvites().then(guildInvites => {});
@@ -104,7 +117,7 @@ else last = `  Never Join Any Room`;
         )
       .addField("Last voice",` ${last}`)
         .addField("Invite count", inviteCount, false)
-            .setFooter(`${mention.tag}`, 'https://cdn.discordapp.com/attachments/705295880215068722/719010959691219005/ID_symbol_B-W_128x128.gif');
+            .setFooter(`${mention.tag}`, '');
  
       message.channel.send(id);
     });
@@ -115,34 +128,20 @@ else last = `  Never Join Any Room`;
 client.on("message", async message => {
   if (message.content.startsWith(prefix + "help")) {
     let help = new Discord.MessageEmbed()
-      .setColor("BLACK")
+      .setColor(col)
       .setAuthor(message.author.username, message.author.displayAvatarURL)
       .setThumbnail(message.guild.iconURL)
     
       .setDescription(`
-      
-  
+Invite Me For Your Server And All Time protected      
+**Public** - (8)
+bot,server,ping,uinvites,hightRole,nick,user,roles,
 
-━──╮•╭──━
-⌖| Security
-> anti ban [Number]
-> anti kick [Number]
-> anti channel [Number]
-> anti role [Number]
-> anti bot [on / off]
-━──╮•╭──━
-⌖| Public
-> bot , server , ping , profile , uinvites , hightRole , nick
-> user , avatar , roles , emoji
-━──╮•╭──━
-⌖| Moderation
-> , ban , kick , mute , unmute ,  bans
-> say , unban[userid/all]
-━──╮•╭──━
+**Moderation** - (7)
+ban, kick, mute, unmute, bans ,say, unban[userid/all]
 
-__ [Vote](link top gg) __  
-__ [invite](invitebot) __  __ [Support](https://discord.gg/cetGQvWD3h) __
-
+**Security Section** - (3)
+settings, punishment, anti
 `);
     message.channel.send(help);
   }
