@@ -1507,3 +1507,54 @@ client.on("message", message => {
     message.channel.send(embed);
   }
 })
+
+client.on("message", message => {
+  if (message.author.bot) return;
+  if (!message.guild) return;
+  if (message.content.startsWith(prefix + "settings")) {
+  if (message.author.id !== message.guild.ownerID) return message.reply("Just For Owner ship")
+    var blackjack = new Discord.MessageEmbed()
+      .setAuthor(message.author.tag, message.author.avatarURL())
+      .setTitle(`**__${message.guild.name}__ , Server Settings**`)
+
+      .addField(
+        "Ban Limit Info",
+        `
+**• Count : __\`${config[message.guild.id].banLimit} \`__**
+`
+      )
+      .addField(
+        "Kick Limit Info",
+        `
+**• Count : __\`${config[message.guild.id].kickLimits} \`__**
+`
+      )
+      .addField(
+        "Role Delete Limit Info",
+        `
+**• Count : __\`${config[message.guild.id].roleDelLimit} \`__**
+`
+      )
+
+      .addField(
+        "Role Create Limit Info",
+        `
+**• Count : __\`${config[message.guild.id].roleCrLimits} \`__**
+`
+      )
+      .addField(
+        "Channel Delete Limit Info",
+        `
+**• Count : __\`${config[message.guild.id].chaDelLimit} \`__**
+`
+      )
+      .addField(
+        "Channel Create Limit Info",
+        `
+**• Count : __\`${config[message.guild.id].chaCrLimit} \`__**
+`
+      );
+
+    message.channel.send(blackjack);
+  }
+});
