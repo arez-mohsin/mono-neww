@@ -100,7 +100,7 @@ else last = `  Never Join Any Room`;
  
       var id = new MessageEmbed()
       .setThumbnail(message.author.avatarURL)
-        .setColor("RANDOM")
+        .setColor(col)
         .addField(
           "Time joined discord",
           `${moment(heg.createdTimestamp).format(
@@ -132,6 +132,28 @@ else last = `  Never Join Any Room`;
 //anti bot [on / off]
 ////
 
+client.on("message", async message => {
+  if (message.content.startsWith(prefix + "anti")) {
+    let help = new Discord.MessageEmbed()
+      .setColor(col)
+      .setAuthor(message.author.username, message.author.displayAvatarURL)
+      .setThumbnail(message.guild.iconURL)
+    
+      .setDescription(`
+> Invite Me To Your Server And All Time Protected🛡️!
+
+**Security** - (5)
+anti ban [Number]
+anti kick [Number]
+anti channel [Number]
+anti role [Number]
+anti bot [on / off]
+
+`);
+message.channel.send(help);
+  }
+});
+/////
 /////
 
 client.on("message", async message => {
@@ -153,10 +175,9 @@ ban, kick, mute, unmute, bans, say, unban[userid/all]
 **Security Section** - (3)
 settings, punishment, anti
 `);
-    message.channel.send(help);
+message.channel.send(help);
   }
 });
-
 ////////
 
 
@@ -1119,6 +1140,7 @@ client.on("message", message => {
     let unban = new Discord.MessageEmbed()
       .setTitle(`Command: bans `)
       .addField("Usage", `${prefix}bans`)
+      .setColor(col)
       .addField("Information", "bans count");
     message.channel.send(unban);
   }
@@ -1129,7 +1151,7 @@ client.on("message", message => {
 client.on("message", async message => {
   let command = message.content.toLowerCase().split(" ")[0];
   command = command.slice(prefix.length);
-  if (command == "avatar") {
+  if (command == "alno ah hid i h aohis gs😀😇😜😘😟😴😟😗😅😜😯😆😏😆😴😅ihag7sh😇😇😘😆😟😘😆اح؟وتمتم") {
     let args = message.content.split(" ");
     let user =
       message.mentions.users.first() ||
@@ -1174,7 +1196,7 @@ message.member.addRole(muterole);
 const embed500 = new Discord.MessageEmbed()
 .setTitle("Muted Ads")
     .addField(`**  You Have Been Muted **` , `**Reason : Type everyone and here**`)
-    .setColor("c91616")
+    .setColor(col)
     .setThumbnail(`${message.author.avatarURL}`)
     .setAuthor(message.author.username, message.author.avatarURL())
 .setFooter(`${message.guild.name} `)
@@ -1212,7 +1234,7 @@ message.member.addRole(muterole);
 const embed500 = new Discord.MessageEmbed()
 .setTitle("Muted Ads")
     .addField(`**  You Have Been Muted **` , `**Reason : BAD WORD**`)
-    .setColor("c91616")
+    .setColor(col)
     .setThumbnail(`${message.author.avatarURL}`)
     .setAuthor(message.author.username, message.author.avatarURL())
 .setFooter(`${message.guild.name} `)
@@ -1239,7 +1261,8 @@ client.on("message", prof => {
       .addField(" 🌐| **Region**:", `${prof.guild.region}`)
       .addField(" **Roles:**", ` ${prof.guild.roles.cache.size}`)
       .setFooter(`Requested | ${prof.author.tag}`, prof.author.avatarURL())
-      .setTimestamp();
+      .setTimestamp()
+      .setColor(col);
     prof.channel.send(professor);
   }
 });
@@ -1353,14 +1376,13 @@ client.on("message", async message => {
 client.on("message", message => {
   if (message.content.startsWith(prefix + "support")) {
     const embed = new Discord.MessageEmbed()
-      .setDescription(`[Support](https://discord.gg/)`)
+      .setDescription(`[Support](${support})`)
       .setTimestamp()
       .setFooter(`By: ${message.author.tag}`)
       .setAuthor(client.user.username)
       .setThumbnail(message.author.avatarURL)
-      .setColor("BLUE");
-    message.author.send(embed);
-    message.react("✅");
+      .setColor(col);
+    message.channel.send(embed);
   }
 });
 var antibots = (fs.readFileSync("./antibots.json", "utf8")); //require antihack.json file
@@ -1375,12 +1397,12 @@ client.on("message", professor => {
     };
     var profe = new Discord.MessageEmbed()
       .setAuthor(professor.guild.name)
-      .setColor("#0000")
+      .setColor(col)
       .setTitle("AntiBot On")
-      .setDescription(`The AntiBots Join Is On  | By <@${professor.author.id}>`)
+      .setDescription(`:white_check_mark:  The AntiBots Join Is On`)
       .setTimestamp();
     professor.channel.send(profe).then(p => {
-      professor.react("✅");
+      
     });
     fs.writeFile("./antibots.json", JSON.stringify(antibots), err => {
       if (err)
@@ -1400,14 +1422,14 @@ client.on("message", professor => {
     };
     var profe = new Discord.MessageEmbed()
       .setAuthor(professor.guild.name)
-      .setColor("#0000")
+      .setColor(col)
       .setTitle("AntiBot Off")
       .setDescription(
-        `The AntiBots Join Is Off  | By <@${professor.author.id}>`
+        `:white_check_mark: The AntiBots Join Is Off`
       )
       .setTimestamp();
     professor.channel.send(profe).then(p => {
-      professor.react("❎");
+  
     });
     fs.writeFile("./antibots.json", JSON.stringify(antibots), err => {
       if (err)
@@ -1450,7 +1472,7 @@ client.on("message", message => {
       .setAuthor(`${user.username} info`)
       .addField(`Height Role:`, heightR)
       .setFooter(
-        `Requsted By ${message.author.username}`,
+        ``,
         message.author.displayAvatarURL()
       )
       .setThumbnail(user.displayAvatarURL());
