@@ -124,6 +124,15 @@ else last = `  Never Join Any Room`;
   }
 });
 //////////
+//Security
+//anti ban [Number]
+//anti kick [Number]
+//anti channel [Number]
+//anti role [Number]
+//anti bot [on / off]
+////
+
+/////
 
 client.on("message", async message => {
   if (message.content.startsWith(prefix + "help")) {
@@ -133,12 +142,13 @@ client.on("message", async message => {
       .setThumbnail(message.guild.iconURL)
     
       .setDescription(`
-Invite Me For Your Server And All Time protected      
-**Public** - (8)
-bot,server,ping,uinvites,hightRole,nick,user,roles,
+> Invite Me To Your Server And All Time Protected🛡️!
 
-**Moderation** - (7)
-ban, kick, mute, unmute, bans ,say, unban[userid/all]
+**Public Section** - (8)
+bot, server, ping,uinvites, hightRole, nick, user, roles, invite
+
+**Moderation Section** - (7)
+ban, kick, mute, unmute, bans, say, unban[userid/all]
 
 **Security Section** - (3)
 settings, punishment, anti
@@ -173,24 +183,24 @@ client.on("message", message => {
       roleCrLimits: 3,
       time: 30
     };
-  if (message.content.startsWith(prefix + "anti")) {
+  if (message.content.startsWith(prefix + "anti ")) {
     if (message.author.id !== message.guild.owner.user.id){
       let embeeed = new Discord.MessageEmbed()
       .setTitle("Protection+")
       .setDescription("**JUST FOR ONWER SHIP**")
-      .setColor("9e1c36");
+      .setColor(col);
       return message.channel.send(embeeed);
     }
     {
       let black = new Discord.MessageEmbed()
       .setTitle("Protection+")
       .setDescription("**SEND NUMBER**")
-      .setColor("9e1c36");
+      .setColor(col);
  
       { let black2 = new Discord.MessageEmbed()
       .setTitle("Protection+")
       .setDescription("**JUST SEND NUMBER*")
-      .setColor("9e1c36");
+      .setColor(col);
  
       if (message.content.startsWith(prefix + "anti ban")) {
       if (!num) return message.channel.send(black);
@@ -199,7 +209,7 @@ client.on("message", message => {
        { let banLimit1 = new Discord.MessageEmbed()
       .setTitle("Protection+")
       .setDescription(`Changed to : **${config[message.guild.id].banLimit}**`)
-      .setColor("9e1c36");
+      .setColor(col);
         message.channel.send(banLimit1);}
     }
     if (message.content.startsWith(prefix + "anti kick")) {
@@ -209,7 +219,7 @@ client.on("message", message => {
       let embedddd = new Discord.MessageEmbed()
       .setTitle("Protection+")
       .setDescription(`Changed to : **${config[message.guild.id].kickLimits}**`)
-      .setColor("9e1c36");
+      .setColor(col);
       message.channel.send(embedddd);
     }
     if (message.content.startsWith(prefix + "anti roleD")) {
@@ -219,7 +229,7 @@ client.on("message", message => {
       let embeddddddddd = new Discord.MessageEmbed()
       .setTitle("Protection+")
       .setDescription(`Changed to : **${config[message.guild.id].roleDelLimit}**`)
-      .setColor("9e1c36");
+      .setColor(col);
       message.channel.send(embeddddddddd);
     }
     if (message.content.startsWith(prefix + "anti roleC")) {
@@ -229,7 +239,7 @@ client.on("message", message => {
       let embeed = new Discord.MessageEmbed()
       .setTitle("Protection+")
       .setDescription(`Changed to : **${config[message.guild.id].roleCrLimits}**`)
-      .setColor("9e1c36");
+      .setColor(col);
       message.channel.send(embeed);
  
     }
@@ -240,7 +250,7 @@ client.on("message", message => {
             let embeeed = new Discord.MessageEmbed()
       .setTitle("Protection+")
       .setDescription(`Changed to : **${config[message.guild.id].chaDelLimit}**`)
-      .setColor("9e1c36");
+      .setColor(col);
       message.channel.send(embeeed);
  
  
@@ -252,7 +262,7 @@ client.on("message", message => {
       let embd = new Discord.MessageEmbed()
       .setTitle("Protection+")
       .setDescription(`Changed to : **${config[message.guild.id].chaCrLimit}**`)
-      .setColor("9e1c36");
+      .setColor(col);
       message.channel.send(embd);
  
     }
@@ -263,7 +273,7 @@ client.on("message", message => {
             let emb = new Discord.MessageEmbed()
       .setTitle("Protection+")
       .setDescription(`Changed to : **${config[message.guild.id].time}**`)
-      .setColor("9e1c36");
+      .setColor(col);
       message.channel.send(emb);
     }
   }
@@ -772,7 +782,7 @@ client.on("message", message => {
     const tnx = new Discord.MessageEmbed()
       .setAuthor(client.user.username, client.user.avatarURL())
 
-      .setColor("RANDOM")
+      .setColor(col)
       .setTitle(`Info about ${client.user.username}.`)
       .addField(
         "**Ping Bot**",
@@ -788,7 +798,8 @@ client.on("message", message => {
       .addField("**ID Bot**", `[ ${client.user.id} ]`, true)
       .addField("**Prefix Bot**", `[ ${prefix} ]`, true)
       .addField("**Bot Language**", `[ Java Script ]`, true)
-      .setFooter("Security");
+      .addField("**Bot Version** `[13.6.0]`", true)
+      .setFooter(foo);
 
     message.channel.send(tnx);
   }
@@ -819,12 +830,12 @@ client.on("message", message => {
       .unban(args)
       .then(m => {
         message.channel.send(
-          `<a:x2:669825119492767745> **-** **Done Unbanned ${m.username}**`
+          `:white_check_mark: **Done Unbanned ${m.username}**`
         );
       })
       .catch(stry => {
         message.channel.send(
-          `<a:x1:669825119904071691> **-** **I can't find \`${args}\` in the ban list**`
+          `:white_check_mark: **I can't find \`${args}\` in the ban list**`
         );
       });
   }
@@ -890,6 +901,7 @@ client.on("message", message => {
   if (message.content.toLowerCase() === prefix + "help nick") {
     let nick = new Discord.MessageEmbed()
       .setTitle(`Command: nick`)
+      .setColor(col)
       .addField("Usage", `${prefix}nick @user nickname`)
       .addField("Information", "Nicknames");
     message.channel.send(nick);
@@ -899,7 +911,7 @@ client.on("message", message => {
 ////////
 
 client.on("message", async message => {
-  if (message.content.toLowerCase() === prefix + "profile") {
+  if (message.content.toLowerCase() === prefix + "jxka ahk ahvahavavahivahivahiahiahi ah ahi ah ah ahi ahi ahi a") {
     message.channel.startTyping();
     setTimeout(() => {
       message.channel.stopTyping();
@@ -958,7 +970,7 @@ client.on("message", message => {
 
 
 client.on("message", storm => {
-  if (storm.content.startsWith(prefix + "invites")) {
+  if (storm.content.startsWith(prefix + " ab ab ah ahi ah ahvwy8vy8atag 7vtvg7v72😬😇g aug a evw8va")) {
     storm.guild.fetchInvites().then(invs => {
       let user = storm.mentions.users.first() || storm.author;
       let personalInvites = invs.filter(i => i.inviter.id === user.id);
@@ -974,7 +986,7 @@ client.on("message", storm => {
 /////////////
 
 client.on("message", message => {
-  if (message.content.startsWith(prefix + "emoji")) {
+  if (message.content.startsWith(prefix + " ia w2vyav8vayvvyvei h ai hi g i ih  😭😛😇😛😗 😟 😟 8 h a")) {
     if (message.author.bot) return;
     var emojiid = message.content
       .split(" ")
@@ -1030,6 +1042,7 @@ client.on("message", async message => {
     let mute = new Discord.MessageEmbed()
       .setTitle(`Command: Mute `)
       .addField("Usage", `${prefix}mute @user`)
+      .setColor(col)
       .addField("Information", "Mute Members");
     message.channel.send(mute);
   }
@@ -1065,6 +1078,7 @@ client.on("message", async message => {
     let unmute = new Discord.MessageEmbed()
       .setTitle(`Command: unmute `)
       .addField("Usage", `${prefix}unmute @user`)
+      .setColor(col)
       .addField("Information", "unmute Members");
     message.channel.send(unmute);
   }
@@ -1084,6 +1098,7 @@ client.on("message", message => {
     let roles = new Discord.MessageEmbed()
       .setTitle(`Command: roles `)
       .addField("Usage", `${prefix}roles`)
+      .setColor(col)
       .addField("Information", "Show All Roles For Server");
     message.channel.send(roles);
   }
