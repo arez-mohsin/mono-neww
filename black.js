@@ -21,7 +21,10 @@ var table = require("table").table;
 const Discord = require("discord.js");
 const cmd = require("node-cmd");
 const prefix = "m!";
-client.login("");
+const cdtime = 5;
+const cooldown = new Set();
+
+client.login(process.env.TOKEN);
 
 
 
@@ -1558,3 +1561,68 @@ client.on("message", message => {
     message.channel.send(blackjack);
   }
 });
+
+
+/////
+client.on("message", message => {
+  if (message.content === prefix + "punishment kick") {
+  if (cooldown.has(message.author.id)) {
+      return message.channel.send(`You have to wait 5 seconds`).then(m => {
+        m.delete({ timeout: cdtime * 600 });
+      });
+    }
+    cooldown.add(message.author.id);
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
+    if (message.author.id !== message.guild.ownerID)
+      return message.channel.send("**You must have a higher role use this command**");
+    let embed = new Discord.MessageEmbed()
+      .setColor(col)
+      .setDescription(`Punishment has update to kick`);
+    message.channel.send({ embed });
+  }
+});
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+client.on("message", message => {
+  if (message.content === prefix + "punishment ban") {
+  if (cooldown.has(message.author.id)) {
+      return message.channel.send(`You have to wait 5 seconds`).then(m => {
+        m.delete({ timeout: cdtime * 600 });
+      });
+    }
+    cooldown.add(message.author.id);
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
+    if (message.author.id !== message.guild.ownerID)
+      return message.channel.send("**You must have a higher role use this command**");
+    let embed = new Discord.MessageEmbed()
+      .setColor(col)
+      .setDescription(`Punishment has update to ban`);
+    message.channel.send({ embed });
+  }
+});
+///////////////////////////////////////////////////////////////////////////////
+client.on("message", message => {
+  if (message.content === prefix + "punishment") {
+  if (cooldown.has(message.author.id)) {
+      return message.channel.send(`You have to wait 5 seconds`).then(m => {
+        m.delete({ timeout: cdtime * 600 });
+      });
+    }
+    cooldown.add(message.author.id);
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
+    if (message.author.id !== message.guild.ownerID)
+      return message.channel.send("**You must have a higher role use this command**");
+    let embed = new Discord.MessageEmbed()
+      .setColor(col)
+      .setDescription(`**Type a Punishment** __**Kick**__ Or __**Ban**__`);
+    message.channel.send({ embed });
+  }
+});
+///////////////////////////////////////////////////////////////////////////////
