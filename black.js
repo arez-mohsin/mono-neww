@@ -212,7 +212,7 @@ client.on("message", message => {
   if (message.content.startsWith(prefix + "anti ")) {
     if (message.author.id !== message.guild.owner.user.id){
       let embeeed = new Discord.MessageEmbed()
-      .setTitle("Protectio")
+      .setTitle("Error :x:")
       .setDescription("**JUST FOR ONWER SHIP**")
       .setColor(col);
       return message.channel.send(embeeed);
@@ -234,7 +234,8 @@ client.on("message", message => {
       config[message.guild.id].banLimit = num
        { let banLimit1 = new Discord.MessageEmbed()
       .setTitle(tit)
-      .setDescription(`Changed to : **${config[message.guild.id].banLimit}**`)
+
+      .setDescription(`Successfully anti Ban Changed to : **${config[message.guild.id].banLimit}**`)
       .setColor(col);
         message.channel.send(banLimit1);}
     }
@@ -244,7 +245,7 @@ client.on("message", message => {
       config[message.guild.id].kickLimits = num
       let embedddd = new Discord.MessageEmbed()
       .setTitle(tit)
-      .setDescription(`Changed to : **${config[message.guild.id].kickLimits}**`)
+      .setDescription(`Successfully anti Kick Changed to : **${config[message.guild.id].kickLimits}**`)
       .setColor(col);
       message.channel.send(embedddd);
     }
@@ -254,7 +255,7 @@ client.on("message", message => {
       config[message.guild.id].roleDelLimit = num
       let embeddddddddd = new Discord.MessageEmbed()
       .setTitle(tit)
-      .setDescription(`Changed to : **${config[message.guild.id].roleDelLimit}**`)
+      .setDescription(`Successfully anti RoleD Changed to : **${config[message.guild.id].roleDelLimit}**`)
       .setColor(col);
       message.channel.send(embeddddddddd);
     }
@@ -264,7 +265,7 @@ client.on("message", message => {
       config[message.guild.id].roleCrLimits = num
       let embeed = new Discord.MessageEmbed()
       .setTitle(tit)
-      .setDescription(`Changed to : **${config[message.guild.id].roleCrLimits}**`)
+      .setDescription(`Successfully anti RoleCChanged to : **${config[message.guild.id].roleCrLimits}**`)
       .setColor(col);
       message.channel.send(embeed);
  
@@ -275,7 +276,7 @@ client.on("message", message => {
       config[message.guild.id].chaDelLimit = num
             let embeeed = new Discord.MessageEmbed()
       .setTitle(tit)
-      .setDescription(`Changed to : **${config[message.guild.id].chaDelLimit}**`)
+      .setDescription(`Successfully anti ChannelD Changed to : **${config[message.guild.id].chaDelLimit}**`)
       .setColor(col);
       message.channel.send(embeeed);
  
@@ -287,7 +288,7 @@ client.on("message", message => {
       config[message.guild.id].chaCrLimit = num
       let embd = new Discord.MessageEmbed()
       .setTitle(tit)
-      .setDescription(`Changed to : **${config[message.guild.id].chaCrLimit}**`)
+      .setDescription(`Successfully anti ChannelC Changed to : **${config[message.guild.id].chaCrLimit}**`)
       .setColor(col);
       message.channel.send(embd);
  
@@ -298,7 +299,7 @@ client.on("message", message => {
       config[message.guild.id].time = num
             let emb = new Discord.MessageEmbed()
       .setTitle(tit)
-      .setDescription(`Changed to : **${config[message.guild.id].time}**`)
+      .setDescription(`Successfully anti Time Changed to : **${config[message.guild.id].time}**`)
       .setColor(col);
       message.channel.send(emb);
     }
@@ -1626,7 +1627,7 @@ client.on("message", message => {
       return message.channel.send("**You must have a higher role use this command**");
     let embed = new Discord.MessageEmbed()
       .setColor(col)
-      .setDescription(`**Type a Punishment** __**Kick**__ Or __**Ban**__`);
+      .setDescription(`**Type a Punishment** __**Kick**__ Or __**Ban**__ Or __**RemoveRole**__`);
     message.channel.send({ embed });
   }
 });
@@ -1648,7 +1649,7 @@ client.on("message", message => {
       return message.channel.send("**You must have a higher role use this command**");
     let embed = new Discord.MessageEmbed()
       .setColor(col)
-      .setDescription(`**`);
+      .setDescription(`**Punishment `);
     message.channel.send({ embed });
   }
 });
