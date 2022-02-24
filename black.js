@@ -1388,6 +1388,7 @@ client.on("message", message => {
     message.channel.send(embed);
   }
 });
+/////
 var antibots = (fs.readFileSync("./antibots.json", "utf8")); //require antihack.json file
 ////////
 
@@ -1415,6 +1416,7 @@ client.on("message", professor => {
     });
   }
 });
+/////
 
 client.on("message", professor => {
   if (professor.content.startsWith(prefix + "anti bot off")) {
@@ -1442,6 +1444,7 @@ client.on("message", professor => {
     });
   }
 });
+/////
 
 client.on("guildMemberAdd", member => {
   if (!antibots[member.guild.id])
@@ -1625,4 +1628,85 @@ client.on("message", message => {
     message.channel.send({ embed });
   }
 });
-///////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+client.on("message", message => {
+  if (message.content === prefix + "bahi ah sh hoavhvayv8tvtv8a3tv a  😗 😗😯😜 😗😯 😗😛😪 😯😗😆😠 😜😇 😉😴 😯😴😅😠😐😬 😴😮😞😅😞😮😴caceheeicigacgai ig hiick g ") {
+  if (cooldown.has(message.author.id)) {
+      return message.channel.send(`You have to wait 5 seconds`).then(m => {
+        m.delete({ timeout: cdtime * 600 });
+      });
+    }
+    cooldown.add(message.author.id);
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
+    if (message.author.id !== message.guild.ownerID)
+      return message.channel.send("**You must have a higher role use this command**");
+    let embed = new Discord.MessageEmbed()
+      .setColor(col)
+      .setDescription(`**`);
+    message.channel.send({ embed });
+  }
+});
+
+////
+var antiwebhook = (fs.readFileSync("./antiwebhook.json", "utf8"));
+//////
+
+client.on("message", professor => {
+  if (professor.content.startsWith(prefix + "anti webhook on")) {
+    if (!professor.channel.guild) return;
+    if (!professor.member.hasPermission("OWNERSHIP")) return;
+    antibots[professor.guild.id] = {
+      onoff: "On"
+    };
+    var profe = new Discord.MessageEmbed()
+      .setAuthor(professor.guild.name)
+      .setColor(col)
+      .setTitle("AntiWebhook On")
+      .setDescription(`:white_check_mark:  The AntiWebhook Is On`)
+      .setTimestamp();
+    professor.channel.send(profe).then(p => {
+      
+    });
+    fs.writeFile("./antiwebhook.json", JSON.stringify(antiwebhook), err => {
+      if (err)
+        console.error(err).catch(err => {
+          console.error(err);
+        });
+    });
+  }
+
+});
+
+/////
+
+client.on("message", professor => {
+  if (professor.content.startsWith(prefix + "anti webhook off")) {
+    if (!professor.channel.guild) return;
+    if (!professor.member.hasPermission("OWNERSHIP")) return;
+    antibots[professor.guild.id] = {
+      onoff: "Off"
+    };
+    var profe = new Discord.MessageEmbed()
+      .setAuthor(professor.guild.name)
+      .setColor(col)
+      .setTitle("AntiWebhook Off")
+      .setDescription(
+        `:white_check_mark: The AntiWebhook Is Off`
+      )
+      .setTimestamp();
+    professor.channel.send(profe).then(p => {
+  
+    });
+    fs.writeFile("./antiwebhook.json", JSON.stringify(antiwebhook), err => {
+      if (err)
+        console.error(err).catch(err => {
+          console.error(err);
+        });
+    });
+  }
+});
+/////
