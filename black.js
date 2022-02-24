@@ -138,13 +138,13 @@ else last = `  Never Join Any Room`;
 
 client.on("message", async message => {
   if (message.content.startsWith(prefix + "antis")) {
-    let help = new Discord.MessageEmbed()
+    let antis = new Discord.MessageEmbed()
       .setColor(col)
       .setAuthor(message.author.username, message.author.displayAvatarURL)
       .setThumbnail(message.guild.iconURL)
     
       .setDescription(`
-> Invite Me To Your Server And All Time Protected🛡️!
+> **Invite Me To Your Server And All Time Protected🛡️!**
 
 **Security** - (6)
 \`anti ban [Number]
@@ -155,7 +155,8 @@ anti bot [on / off]
 anti webhook [on / off]\`
 
 `);
-message.channel.send(help);
+message.channel.send(antis);
+    message.lineReplyNoMention(antis).catch(console.error); 
   }
 });
 /////
@@ -169,7 +170,7 @@ client.on("message", async message => {
       .setThumbnail(message.guild.iconURL)
     
       .setDescription(`
-> Invite Me To Your Server And All Time Protected🛡️!
+> **Invite Me To Your Server And All Time Protected🛡️!**
 
 **Public Section** - (8)
 \`bot, server, ping, hightRole, nick, user, roles, invite\`
@@ -178,11 +179,14 @@ client.on("message", async message => {
 \`ban, kick, mute, unmute, bans, say, unban[userid/all]\`
 
 **Security Section** - (3)
-\`settings, punishment, anti\`
+\`settings, punishment, antis\`
 `);
 message.channel.send(help);
   }
 });
+ 
+
+
 ////////
 
 
@@ -1633,9 +1637,9 @@ client.on("message", message => {
 });
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
+///
 client.on("message", message => {
-  if (message.content === prefix + "bahi ah sh hoavhvayv8tvtv8a3tv a  😗 😗😯😜 😗😯 😗😛😪 😯😗😆😠 😜😇 😉😴 😯😴😅😠😐😬 😴😮😞😅😞😮😴caceheeicigacgai ig hiick g ") {
+  if (message.content === prefix + "punishment Removerole") {
   if (cooldown.has(message.author.id)) {
       return message.channel.send(`You have to wait 5 seconds`).then(m => {
         m.delete({ timeout: cdtime * 600 });
@@ -1649,12 +1653,54 @@ client.on("message", message => {
       return message.channel.send("**You must have a higher role use this command**");
     let embed = new Discord.MessageEmbed()
       .setColor(col)
-      .setDescription(`**Punishment `);
+      .setDescription(`Punishment has update to RemoveRole`);
     message.channel.send({ embed });
   }
 });
 
+client.on("message", message => {
+  if (message.content === prefix + "punishment removerole") {
+  if (cooldown.has(message.author.id)) {
+      return message.channel.send(`You have to wait 5 seconds`).then(m => {
+        m.delete({ timeout: cdtime * 600 });
+      });
+    }
+    cooldown.add(message.author.id);
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
+    if (message.author.id !== message.guild.ownerID)
+      return message.channel.send("**You must have a higher role use this command**");
+    let embed = new Discord.MessageEmbed()
+      .setColor(col)
+      .setDescription(`Punishment has update to RemoveRole`);
+    message.channel.send({ embed });
+  }
+});
+client.on("message", message => {
+  if (message.content === prefix + "punishment RemoveRole") {
+  if (cooldown.has(message.author.id)) {
+      return message.channel.send(`You have to wait 5 seconds`).then(m => {
+        m.delete({ timeout: cdtime * 600 });
+      });
+    }
+    cooldown.add(message.author.id);
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
+    if (message.author.id !== message.guild.ownerID)
+      return message.channel.send("**You must have a higher role use this command**");
+    let embed = new Discord.MessageEmbed()
+      .setColor(col)
+      .setDescription(`Punishment has update to RemoveRole`);
+    message.channel.send({ embed });
+  }
+});
+
+//
+//
 ////
+
 var antiwebhook = (fs.readFileSync("./antiwebhook.json", "utf8"));
 //////
 
@@ -1713,3 +1759,5 @@ client.on("message", professor => {
   }
 });
 /////
+
+const { lineReply } = require("discord-reply"); 
