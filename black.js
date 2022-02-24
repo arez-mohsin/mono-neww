@@ -33,6 +33,7 @@ client.login(process.env.TOKEN);
 const col = "#2f3136"
 const foo = ""
 const image = ""
+const tit = "**Protected The Server Settings Your Anti** :arrow_down: "
 ////
 const support = "https://discord.gg/2Hyrky9fkE"
 
@@ -40,8 +41,8 @@ const support = "https://discord.gg/2Hyrky9fkE"
 
 client.on("ready", async () => {
   console.log(`Logged in as ${client.user.username}!`);
-  client.user.setStatus("idle");
-  client.user.setActivity(`${prefix}help`, { type: "competing" });
+  client.user.setStatus("IDLE");
+  client.user.setActivity(`${prefix}help`, { type: "COMPETING" });
   client.guilds.cache.forEach(g => {
     if (g.member(client.user).hasPermission("ADMINISTRATOR")) {
       g.fetchInvites().then(guildInvites => {});
@@ -136,7 +137,7 @@ else last = `  Never Join Any Room`;
 ////
 
 client.on("message", async message => {
-  if (message.content.startsWith(prefix + "anti")) {
+  if (message.content.startsWith(prefix + "antis")) {
     let help = new Discord.MessageEmbed()
       .setColor(col)
       .setAuthor(message.author.username, message.author.displayAvatarURL)
@@ -145,12 +146,13 @@ client.on("message", async message => {
       .setDescription(`
 > Invite Me To Your Server And All Time Protected🛡️!
 
-**Security** - (5)
-anti ban [Number]
+**Security** - (6)
+\`anti ban [Number]
 anti kick [Number]
 anti channel [Number]
 anti role [Number]
 anti bot [on / off]
+anti webhook [on / off]\`
 
 `);
 message.channel.send(help);
@@ -170,13 +172,13 @@ client.on("message", async message => {
 > Invite Me To Your Server And All Time Protected🛡️!
 
 **Public Section** - (8)
-bot, server, ping,uinvites, hightRole, nick, user, roles, invite
+\`bot, server, ping, hightRole, nick, user, roles, invite\`
 
 **Moderation Section** - (7)
-ban, kick, mute, unmute, bans, say, unban[userid/all]
+\`ban, kick, mute, unmute, bans, say, unban[userid/all]\`
 
 **Security Section** - (3)
-settings, punishment, anti
+\`settings, punishment, anti\`
 `);
 message.channel.send(help);
   }
@@ -210,19 +212,19 @@ client.on("message", message => {
   if (message.content.startsWith(prefix + "anti ")) {
     if (message.author.id !== message.guild.owner.user.id){
       let embeeed = new Discord.MessageEmbed()
-      .setTitle("Protection+")
+      .setTitle("Protectio")
       .setDescription("**JUST FOR ONWER SHIP**")
       .setColor(col);
       return message.channel.send(embeeed);
     }
     {
       let black = new Discord.MessageEmbed()
-      .setTitle("Protection+")
+      .setTitle("Error :x:")
       .setDescription("**SEND NUMBER**")
       .setColor(col);
  
       { let black2 = new Discord.MessageEmbed()
-      .setTitle("Protection+")
+      .setTitle("Error :x:")
       .setDescription("**JUST SEND NUMBER*")
       .setColor(col);
  
@@ -231,7 +233,7 @@ client.on("message", message => {
       if (isNaN(num)) return message.channel.send(black2);
       config[message.guild.id].banLimit = num
        { let banLimit1 = new Discord.MessageEmbed()
-      .setTitle("Protection+")
+      .setTitle(tit)
       .setDescription(`Changed to : **${config[message.guild.id].banLimit}**`)
       .setColor(col);
         message.channel.send(banLimit1);}
@@ -241,7 +243,7 @@ client.on("message", message => {
       if (isNaN(num)) return message.channel.send(black2);
       config[message.guild.id].kickLimits = num
       let embedddd = new Discord.MessageEmbed()
-      .setTitle("Protection+")
+      .setTitle(tit)
       .setDescription(`Changed to : **${config[message.guild.id].kickLimits}**`)
       .setColor(col);
       message.channel.send(embedddd);
@@ -251,7 +253,7 @@ client.on("message", message => {
       if (isNaN(num)) return message.channel.send(black2);
       config[message.guild.id].roleDelLimit = num
       let embeddddddddd = new Discord.MessageEmbed()
-      .setTitle("Protection+")
+      .setTitle(tit)
       .setDescription(`Changed to : **${config[message.guild.id].roleDelLimit}**`)
       .setColor(col);
       message.channel.send(embeddddddddd);
@@ -261,7 +263,7 @@ client.on("message", message => {
       if (isNaN(num)) return message.channel.send(black2);
       config[message.guild.id].roleCrLimits = num
       let embeed = new Discord.MessageEmbed()
-      .setTitle("Protection+")
+      .setTitle(tit)
       .setDescription(`Changed to : **${config[message.guild.id].roleCrLimits}**`)
       .setColor(col);
       message.channel.send(embeed);
@@ -272,7 +274,7 @@ client.on("message", message => {
       if (isNaN(num)) return message.channel.send(black2);
       config[message.guild.id].chaDelLimit = num
             let embeeed = new Discord.MessageEmbed()
-      .setTitle("Protection+")
+      .setTitle(tit)
       .setDescription(`Changed to : **${config[message.guild.id].chaDelLimit}**`)
       .setColor(col);
       message.channel.send(embeeed);
@@ -284,7 +286,7 @@ client.on("message", message => {
       if (isNaN(num)) return message.channel.send(black2);
       config[message.guild.id].chaCrLimit = num
       let embd = new Discord.MessageEmbed()
-      .setTitle("Protection+")
+      .setTitle(tit)
       .setDescription(`Changed to : **${config[message.guild.id].chaCrLimit}**`)
       .setColor(col);
       message.channel.send(embd);
@@ -295,7 +297,7 @@ client.on("message", message => {
       if (isNaN(num)) return message.channel.send(black2);
       config[message.guild.id].time = num
             let emb = new Discord.MessageEmbed()
-      .setTitle("Protection+")
+      .setTitle(tit)
       .setDescription(`Changed to : **${config[message.guild.id].time}**`)
       .setColor(col);
       message.channel.send(emb);
